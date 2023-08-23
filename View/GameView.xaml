@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LAB10_MAUI_AttaxxPlus.View.GameView"
+             xmlns:local="clr-namespace:LAB10_MAUI_AttaxxPlus.View"
+             xmlns:vm="clr-namespace:LAB10_MAUI_AttaxxPlus.ViewModel"
+             xmlns:booster="clr-namespace:LAB10_MAUI_AttaxxPlus.Boosters"
+             xmlns:model="clr-namespace:LAB10_MAUI_AttaxxPlus.Model"
+             WidthRequest="640"
+             HeightRequest="460"
+             >
+
+    <ContentView.Resources>
+        <local:OwnerIndex2ColorConverter x:Key="OwnerIndex2ColorConverter"/>
+        <local:IsSelected2ColorConverter x:Key="IsSelected2ColorConverter"/>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style TargetType="CollectionView">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </ContentView.Resources>
+
+    <StackLayout Orientation="Horizontal" Padding="5"
+                BackgroundColor="{Binding Path=CurrentPlayer, Mode=OneWay, Converter={StaticResource OwnerIndex2ColorConverter}}">
+        <StackLayout Orientation="Horizontal" Background="Gray">
+            <CollectionView x:Name="GameField" BackgroundColor="Beige"
+                ItemsSource="{Binding Path=Fields, Mode=OneWay}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:FieldViewModelList">
+                        <CollectionView ItemsSource="{Binding Mode=OneWay}" WidthRequest="439">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="vm:FieldViewModel">
+                                    <Button Command="{Binding FieldCommand, Mode=OneWay}" CommandParameter="{Binding }"
+                                            HeightRequest="80" WidthRequest="80"
+                                            Background="{Binding Owner, Mode=OneWay, Converter={StaticResource OwnerIndex2ColorConverter}}"
+                                            BorderColor="{Binding IsSelected, Mode=OneWay, Converter={StaticResource IsSelected2ColorConverter}}"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView x:Name="BoosterPanel" BackgroundColor="Gray"
+                    ItemsSource="{Binding Path=BoosterListViewModel.Boosters, Mode=OneWay}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="booster:IBooster">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}"/>
+                            <Button Text="{Binding Title}" Command="{Binding }" WidthRequest="100" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        
+    </StackLayout>
+  
+</ContentView>
+
