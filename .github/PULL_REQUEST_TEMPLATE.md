@@ -1,6 +1,6 @@
 **Megjegyzések az elkészült megoldáshoz**
 
-
+**Vigyázat:** Automatikus kiértékelés! A részletekhez olvasd el a README-t figyelmesen!
 
 **Ellenőrzési lista**
 - Megadtad a Neptun kódodat a neptun.txt fájlban.

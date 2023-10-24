@@ -1,5 +1,4 @@
-﻿using System;
-using LAB10_MAUI_AttaxxPlus.Model;
+﻿using LAB10_MAUI_AttaxxPlus.Model;
 using LAB10_MAUI_AttaxxPlus.ViewModel;
 
 

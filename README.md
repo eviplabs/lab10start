@@ -10,6 +10,38 @@ A labor során egy viszonylag összetett alkalmazásban kell mozogni és módos�
 
 ![](docs/SampleSolution.png)
 
+Ha a kiinduló projektet nem tudod lefordítani, vagy nem indulna el, ellenőrizd, hogy a megfelelő Framework van kiválasztva:
+
+![](docs/TargetFramework.png)
+
+## Értékelés
+
+**Vigyázat!**: Automatikus kiértékelés kísérleti jelleggel!
+
+A labor során a feladatokat egy automata ellenörző szoftver fogja ellenőrizni! Ez az ellenőrző szoftver egy GitHub Action-ben fog lefutni. (További információk: https://docs.github.com/en/actions). Ez azt jelenti, hogy a labor megoldás csak akkor értékelhető, ha az ellenőrző szoftver le tud futni. Ennek érdekében ne módosíts semmit a projekten amit külön nem kér a feladat! A Solution és a Projekt fájlt semmiképpen se módosítsd! A Github Action leírását a `.github/workflows/evaluate.yaml` fájlban találod. Ennek módosítása esetén a megoldásod érvénytelenné válik!
+
+Az értékelő szoftvert mindenki maximum 3 alkalommal tudja használni, ezért figyelj arra, hogy csak akkor futtasd, ha úgy gondolod készen vagy. Az Action automatikusan elindul minden alkalommal, amikor pusholsz egy olyan branchre, amihez Pull Request tartozik, ezért a megoldás során nagyon körültekintően járj el az alábbiak szerint:
+
+* Klónozd le a repositoryt a számítógépedre!
+* Hozz létre egy új branchet `megoldas` néven!
+* Töltsd ki a `neptun.txt` fájlt a Neptun kódoddal!
+* Oldd meg a feladatokat, minden feladat megoldás utána commitolj!
+* Figyelj rá, hogy ha véletlenül módosítottad a Solution vagy a Projekt fájlt, akkor azt ne stageld!
+* Ha készen vagy, pushold fel a megoldásodat a GitHubra!
+* Hozz létre egy Pull Requestet a `megoldas` branchről a `main` branchre. Ne felejtsd el hozzárendelni a laborvezetődet `Reviewer`-ként.
+
+Ezek után le fog futni az ellenőrzés. Ennek eredményét a Pull Request-en vagy a repository `Actions` fülén tudod ellenőrizni.
+Sikertelenség esetén az Action hibüzenetéből tudsz tájékozódni. Kérj segítséget a laborvezetődtől!
+
+Ha az Action sikeresen lefutott, akkor a Pull Requestben egy új komment jelenik meg egy pontszámmal. Ha nem vagy elégedett az eredménnyel, módosíthatod a megoldásodat a következő módon:
+
+* Készítsd el a módosításokat a számítógépeden! Minden módosítás után commitolj!
+* Ha elkészültél, és szeretnéd ismét lefuttatni az ellenőrzést, pushold fel a megoldást!
+
+Az ellenőrzés automatikusan lefut, és megkapod az új pontszámodat. Ezt összesen 3 alkalommal teheted meg. A laborodat akkor tudjuk értékelni, ha legalább egyszer sikeresen lefutott az ellenőrzés! Ha véletlenül több alkalommal pusholsz, a 3. alkalom után az ellenőrzés nem fog lefutni!
+
+A laborok értékelése során az elsődleges szempont az automatikus értékelő álltal meghatározott pontszám, azonban a laborvezető ezt felülbírálhatja, ha a megoldásod nem megfelelő. Nem forduló alkalmazást nem tudunk értékelni.
+
 ## 1. feladat: a kijelölt mező keretszíne
 
 (A labor elején, már most hozz létre egy új branchet és utána azon dolgozz, hogy a pull requestet könnyű legyen majd a labor végén létrehozni! És ha az egyetemen kezdted el a munkát, mielőtt elmész, ne felejtsd el felpusholni a változásokat a laborgépről a githubra!)
@@ -56,7 +88,7 @@ A TryExecute-ban ki kell majd derítened, hogy ki az aktuális játékos. Ebben 
 A játékban előfordul olyan szituáció, amikor egy játékos nem tud lépni, de még van szabad mező, így nem ér véget a játék.
 A legegyszerűbb megoldás erre a "Surrender Booster", amit ha megnyom egy játékos, minden maradék mező az ellenfél színét veszi fel, ami miatt véget ér a játék. A mostani feladat ennek megvalósítása.
 
-Kiindulási alapnak lehet használni a Dummy Boostert. Az alkalmazás már tartalmaz egy képet surrenderbooster.png néven, ezt nem kell megrajzolni. Az elkészítéskor a SurrenderBoostert származtassa (a DummyBoosterhez hasonlóan) a BoosterBase osztályból, hogy annak GameViewModel propertyjén keresztül el tudja érni a GameBase osztály példányát, majd abban a Fields propertyt.
+Kiindulási alapnak lehet használni a Dummy Boostert. Az alkalmazás már tartalmaz egy képet SurrenderBooster.png néven, ezt nem kell megrajzolni. Az elkészítéskor a SurrenderBoostert származtassa (a DummyBoosterhez hasonlóan) a BoosterBase osztályból, hogy annak GameViewModel propertyjén keresztül el tudja érni a GameBase osztály példányát, majd abban a Fields propertyt.
 
 ## További szorgalmi feladat lehetőségek
 
