@@ -1,0 +1,44 @@
+name: Evaluation
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, labeled]
+
+jobs:
+  evaluate:
+    name: Evaluation    
+    runs-on: windows-2022
+
+    timeout-minutes: 4
+
+    if: github.event.pull_request.draft == false && github.run_number <= 3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Check neptun.txt
+        uses: akosdudas/ahk-action-neptuncheck@v1
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+            dotnet-version: 7.0.x
+
+      - name: Build sln
+        run: dotnet build -f net7.0 -c Release
+
+      - name: Evaluation
+        id: evaluation
+        uses: eviplabs/ahk-attaxx-evaluator@v1
+        with:
+            solution-bin-path: app\bin\Release\net7.0
+            github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Publish results
+        uses: akosdudas/ahk-action-publish-result-pr@v1
+        with:
+          input-file: ${{ steps.evaluation.outputs.result-path }}
+          github-token: "${{ secrets.GITHUB_TOKEN }}"

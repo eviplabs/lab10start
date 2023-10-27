@@ -1,8 +1,7 @@
 ﻿using LAB10_MAUI_AttaxxPlus.Model.Operations;
 using LAB10_MAUI_AttaxxPlus.ViewModel;
-using System.Windows.Input;
 using System.ComponentModel;
-using Microsoft.Maui.Graphics;
+using System.Windows.Input;
 
 namespace LAB10_MAUI_AttaxxPlus.Boosters
 {

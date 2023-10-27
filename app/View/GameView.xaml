@@ -36,7 +36,9 @@
                                 <DataTemplate x:DataType="vm:FieldViewModel">
                                     <Button Command="{Binding FieldCommand, Mode=OneWay}" CommandParameter="{Binding }"
                                             HeightRequest="80" WidthRequest="80"
+                                            Margin="4,0"
                                             Background="{Binding Owner, Mode=OneWay, Converter={StaticResource OwnerIndex2ColorConverter}}"
+                                            BorderWidth="2"
                                             BorderColor="{Binding IsSelected, Mode=OneWay, Converter={StaticResource IsSelected2ColorConverter}}"/>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
@@ -46,12 +48,12 @@
             </CollectionView>
 
             <CollectionView x:Name="BoosterPanel" BackgroundColor="Gray"
-                    ItemsSource="{Binding Path=BoosterListViewModel.Boosters, Mode=OneWay}">
+                    ItemsSource="{Binding Path=BoosterListViewModel.Boosters, Mode=OneWay}" WidthRequest="160">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="booster:IBooster">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="{Binding Image}"/>
-                            <Button Text="{Binding Title}" Command="{Binding }" WidthRequest="100" />
+                            <Button Text="{Binding Title}" Command="{Binding }" MinimumWidthRequest="100" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

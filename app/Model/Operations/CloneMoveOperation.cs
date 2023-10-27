@@ -20,7 +20,7 @@ namespace LAB10_MAUI_AttaxxPlus.Model.Operations
                 && currentField.IsEmpty())
             {
                 currentField.Owner = selectedField.Owner;
-                
+
                 ChangeOwnerOfOccupiedFieldsAroundField(currentField);
                 return true;
             }

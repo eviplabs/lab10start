@@ -1,5 +1,4 @@
-﻿using System;
-using LAB10_MAUI_AttaxxPlus.Model;
+﻿using LAB10_MAUI_AttaxxPlus.Model;
 
 namespace LAB10_MAUI_AttaxxPlus.Boosters
 {
@@ -13,7 +12,7 @@ namespace LAB10_MAUI_AttaxxPlus.Boosters
         public DummyBooster()
             : base()
         {
-            LoadImage(@"Boosters/dummybooster.png");
+            LoadImage(@"Resources/Images/dummybooster.png");
         }
 
         protected override void CurrentPlayerChanged()
