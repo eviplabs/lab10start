@@ -27,15 +27,11 @@ jobs:
         with:
             dotnet-version: 7.0.x
 
-      - name: Build sln
-        run: dotnet build -f net7.0 -c Release
-
       - name: Evaluation
         id: evaluation
-        uses: eviplabs/ahk-attaxx-evaluator@v1
+        uses: eviplabs/attaxx-plus-evaluator@v2
         with:
-            solution-bin-path: app\bin\Release\net7.0
-            github-token: "${{ secrets.GITHUB_TOKEN }}"
+            project: app\LAB10_MAUI_AttaxxPlus.csproj
 
       - name: Publish results
         uses: akosdudas/ahk-action-publish-result-pr@v1

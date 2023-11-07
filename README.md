@@ -42,6 +42,16 @@ Az ellenőrzés automatikusan lefut, és megkapod az új pontszámodat. Ezt öss
 
 A laborok értékelése során az elsődleges szempont az automatikus értékelő álltal meghatározott pontszám, azonban a laborvezető ezt felülbírálhatja, ha a megoldásod nem megfelelő. Nem forduló alkalmazást nem tudunk értékelni.
 
+## Manuális ellenőrzés
+
+A megoldásodat manuálisan is ellenőrizheted pusholás előtt. Ehhez nyiss egy terminált a Visual Studio-ban a `View > Terminal` menüponttal. A terminálban fordítsd le a megoldásodat a következő parancs segítségével:
+
+```bash
+dotnet build -f net7.0
+```
+
+A kiértékelés automatiksan megtörténik a buildelés után, az eredményedet a Terminál ablakban találod.
+
 ## 1. feladat: a kijelölt mező keretszíne
 
 (A labor elején, már most hozz létre egy új branchet és utána azon dolgozz, hogy a pull requestet könnyű legyen majd a labor végén létrehozni! És ha az egyetemen kezdted el a munkát, mielőtt elmész, ne felejtsd el felpusholni a változásokat a laborgépről a githubra!)
@@ -101,3 +111,4 @@ A maradék időben néhány fejlesztési lehetőség. Először egy könnyebb:
 - 3 játékos verzió készítése. Az alkalmazás jelentős része akárhány játékost támogat. Azt, hogy hány van, a GameBase leszármazottai adják meg. Most a SimpleGame-et példányosítjuk induláskor (hogy hol, azt a Find References funkció mutatja meg). Hozz létre egy új GameBase leszármazottat, ami 3 játékost definiál. Ezen kívül a játékosok színeit megadó IValueConverterben is biztos fel kell venni egy új színt...
 - Gépi játékost hol lehetne beilleszteni a rendszerbe? A GameBase.EndOfTurn() fut le akkor, amikor egy játékos végzett a körével. Itt ha van nem emberi játékos, akkor azokon végig lehet menni és le lehet őket futtatni egészen addig, amíg nem lesz vége a játéknak vagy egy emberi játékos nem következik.
 - Új "game over ellenőrzés": a teljesen (dupla gyűrűvel) bekerített játékos nem tud tovább lépni. De a játék még nem veszi észre ilyenkor, hogy vége van... Ennek a feladatnak a célja, hogy ilyenkor is magától véget érjen a játék és ne kelljen a SurrenderBoostert használni.
+
