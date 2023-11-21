@@ -61,7 +61,7 @@ A mezők megjelenítését a View/GameView.xaml írja le. Itt minden mező egy n
 
 ## 2. feladat: a StaticResource kulcsok (debug gyakorlás)
 
-Mi van, ha egy StaticResource kulcsát átírjuk? Például a GameView.xaml-ben a OwnerIndex2BrushConverter kulcsot valami más értékre. Hol és milyen hiba jön? Miért nem jött elő fordítási időben? Ezt próbáld ki, hogy ha majd ilyen hibával találkozol, könnyebben felismerd! Utána írd vissza a kulcsot és mehetsz is tovább.
+Mi van, ha egy StaticResource kulcsát átírjuk? Például a GameView.xaml-ben a OwnerIndex2ColorConverter kulcsot valami más értékre. Hol és milyen hiba jön? (Néha egyébként semmilyen hibát nem dob az alkalmazás.) Miért nem jött elő fordítási időben? Ezt próbáld ki, hogy ha majd ilyen hibával találkozol, könnyebben felismerd! Utána írd vissza a kulcsot, és mehetsz is tovább.
 
 ## 3. feladat: mező kijelölés (debug gyakorlás)
 
